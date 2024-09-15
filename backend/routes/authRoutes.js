@@ -4,10 +4,10 @@ const User = require("../model/user.js");
 const bcrypt = require("bcryptjs");
 const router = express.Router();
 const authMiddleware = require('../middleware/authMiddleware');
-// Sign up Route
-// Sign up Route
+
+
 router.post("/signup", async (req, res) => {
-  console.log(req.body); // Log the request body
+  console.log(req.body); 
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
@@ -23,9 +23,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-// Login Route
-// Login Route
-// Login Route
+
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -35,7 +33,7 @@ router.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
 
-    console.log('User before login:', user); // Add this log
+   
 
     const payload = {
       user: {
@@ -49,7 +47,7 @@ router.post("/login", async (req, res) => {
       { expiresIn: "1h" },
       (err, token) => {
         if (err) throw err;
-        console.log('Sending response:', { token, isNewUser: user.isNewUser }); // Add this log
+        console.log('Sending response:', { token, isNewUser: user.isNewUser });
         res.json({ token, isNewUser: user.isNewUser });
       }
     );

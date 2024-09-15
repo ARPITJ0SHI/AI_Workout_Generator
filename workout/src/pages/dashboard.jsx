@@ -6,11 +6,11 @@ import Slider from "react-slick";
 import { useSpring, animated } from 'react-spring';
 import { useNotification } from '../services/notification';
 
-// Import css files for react-slick
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Import images
+
 import workout1 from '../assets/workout1.jpg';
 import workout2 from '../assets/workout2.jpg';
 import workout3 from '../assets/workout3.jpg';
@@ -64,16 +64,16 @@ const Dashboard = () => {
   const calculateStreak = (workouts) => {
     if (!workouts.length) return 0;
 
-    // Sort workouts by date in descending order
+ 
     const sortedWorkouts = workouts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     let streak = 1;
     let currentDate = new Date(sortedWorkouts[0].date);
-    currentDate.setHours(0, 0, 0, 0); // Normalize to start of day
+    currentDate.setHours(0, 0, 0, 0); 
 
     for (let i = 1; i < sortedWorkouts.length; i++) {
       const workoutDate = new Date(sortedWorkouts[i].date);
-      workoutDate.setHours(0, 0, 0, 0); // Normalize to start of day
+      workoutDate.setHours(0, 0, 0, 0); 
 
       const diffDays = (currentDate - workoutDate) / (1000 * 60 * 60 * 24);
 
@@ -81,7 +81,7 @@ const Dashboard = () => {
         streak++;
         currentDate = workoutDate;
       } else if (diffDays > 1) {
-        break; // Streak is broken
+        break; 
       }
     }
 
@@ -115,7 +115,7 @@ const Dashboard = () => {
     autoplaySpeed: 5000,
   };
 
-  // Animation for the streak number
+  
   const { number } = useSpring({
     from: { number: 0 },
     number: streak,
@@ -123,7 +123,7 @@ const Dashboard = () => {
     config: { mass: 1, tension: 20, friction: 10 },
   });
 
-  // Animation for the flame
+
   const flameProps = useSpring({
     from: { transform: 'scale(1)' },
     to: async (next) => {
@@ -167,7 +167,7 @@ const Dashboard = () => {
 
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            {/* Hero Carousel */}
+          
             <div className="mb-8">
               <Slider {...sliderSettings}>
                 {heroSlides.map((slide, index) => (
@@ -184,7 +184,7 @@ const Dashboard = () => {
               </Slider>
             </div>
 
-            {/* Last Logged Workouts */}
+           
             <div className="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
               <h2 className="text-2xl font-semibold mb-4">Last Logged Workouts</h2>
               {loggedWorkouts.length > 0 ? (

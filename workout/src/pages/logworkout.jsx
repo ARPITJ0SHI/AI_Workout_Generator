@@ -4,7 +4,7 @@ import axios from '../api/axios';
 const LogWorkout = () => {
   const [workoutData, setWorkoutData] = useState({
     name: '',
-    date: new Date().toISOString().split('T')[0], // Set default date to today
+    date: new Date().toISOString().split('T')[0], 
     duration: '',
     difficulty: '',
     exercises: [{ name: '', sets: '', reps: '', weight: '' }],
@@ -62,7 +62,7 @@ const LogWorkout = () => {
         duration: selectedWorkout.duration,
         difficulty: selectedWorkout.difficulty,
         exercises: exercises,
-        notes: selectedWorkout.content // Set the full workout content as notes
+        notes: selectedWorkout.content 
       });
     }
   };

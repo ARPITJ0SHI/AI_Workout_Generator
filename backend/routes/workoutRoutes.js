@@ -6,20 +6,19 @@ const User = require("../model/user");
 const Workout = require("../model/workout");
 const LoggedWorkout = require("../model/logWorkouts");
 
-// Initialize the Gemini API client
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 router.post("/generate-workout", authMiddleware, async (req, res) => {
   try {
     const { prompt } = req.body;
 
-    // Fetch user profile data
+    
     const user = await User.findById(req.user._id).select("-password");
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
 
-    // Construct the final prompt using user data and the provided prompt
     const finalPrompt = `
       Generate a workout routine for a user with the following profile:
       Age: ${user.age}
@@ -51,12 +50,12 @@ router.post("/generate-workout", authMiddleware, async (req, res) => {
 
     console.log("Final Prompt:", finalPrompt);
 
-    // Call the Gemini API
+    
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const result = await model.generateContent(finalPrompt);
     const response = await result.response.text();
     
-    // Clean the response: remove asterisks and trim each line
+
     let cleanedResponse = response.split('\n')
       .map(line => line.replace(/\*/g, '').trim())
       .filter(line => line.length > 0)
@@ -141,7 +140,7 @@ router.post("/log-workout", authMiddleware, async (req, res) => {
 
 router.get("/logged-workouts", authMiddleware, async (req, res) => {
   try {
-    const limit = parseInt(req.query.limit) || 10; // Default to 10 if no limit is specified
+    const limit = parseInt(req.query.limit) || 10; 
     const loggedWorkouts = await LoggedWorkout.find({ user: req.user._id })
       .sort({ date: -1 })
       .limit(limit);

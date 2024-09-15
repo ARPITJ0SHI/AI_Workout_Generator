@@ -20,13 +20,12 @@ function App() {
     <Router>
       <Notification />
       <Routes>
-        {/* Routes without Navbar */}
+        
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        
-        {/* Routes with Navbar */}
+       
         <Route element={<NavbarWrapper />}>
           <Route path="/generated-workouts" element={<GeneratedWorkoutsPage />} />
           <Route path="/profile" element={<Profile />} />
@@ -40,7 +39,7 @@ function App() {
   );
 }
 
-// Wrapper component to include Navbar
+
 const NavbarWrapper = () => (
   <>
     <Navbar />

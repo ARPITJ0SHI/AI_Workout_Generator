@@ -18,7 +18,7 @@ const Login = () => {
       const { token, isNewUser } = response.data;
       localStorage.setItem('token', token);
       
-      console.log('Login response:', response.data); // Add this line for debugging
+      console.log('Login response:', response.data); 
       
       if (isNewUser) {
        

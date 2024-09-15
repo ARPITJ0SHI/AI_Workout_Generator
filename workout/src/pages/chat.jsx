@@ -30,7 +30,7 @@ const GenerateWorkouts = () => {
 
     const handleSaveWorkout = async () => {
         try {
-          // Function to determine difficulty based on workout content
+         
           const determineDifficulty = (content) => {
             const lowerContent = content.toLowerCase();
             if (lowerContent.includes('beginner')) return 'Beginner';
@@ -39,7 +39,7 @@ const GenerateWorkouts = () => {
             return 'Unknown';
           };
       
-          // Function to extract duration from workout content
+      
           const extractDuration = (content) => {
             const durationMatch = content.match(/Duration:\s*(\d+(?:\s*-\s*\d+)?\s*(?:minutes|mins))/i);
             return durationMatch ? durationMatch[1] : 'Unknown';
@@ -72,7 +72,7 @@ const GenerateWorkouts = () => {
         return (
           <div className="bg-gray-700 rounded-lg p-4 shadow-inner mb-4">
             {workoutSections.map((section, index) => {
-              // Remove any asterisks from the section
+             
               section = section.replace(/\*/g, '');
 
               if (section.toLowerCase().includes("duration") || section.toLowerCase().includes("difficulty")) {

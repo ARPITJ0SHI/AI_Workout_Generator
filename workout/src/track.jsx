@@ -18,9 +18,9 @@ const LogWorkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send this data to your backend
+   
     console.log({ workoutDate, exercises });
-    // After submitting, navigate back to the dashboard
+   
     navigate('/dashboard');
   };
 
