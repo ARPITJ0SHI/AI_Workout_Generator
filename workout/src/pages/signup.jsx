@@ -31,7 +31,7 @@ const SignUp = () => {
     }
 
     try {
-      await axios.post('http://localhost:7000/api/auth/signup', { name, email, password });
+      await axios.post('/api/auth/signup', { name, email, password });
       addNotification('Sign up successful! Please log in.', 'success');
       navigate('/');
     } catch (error) {
