@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
 import { useNotification } from '../services/notification';
 
+import backgroundImage from '../assets/background.jpg';
+
 const SignUp = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -60,7 +62,7 @@ const SignUp = () => {
   return (
     <div 
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url('/src/assets/background.jpg')` }}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="bg-white shadow-md rounded-lg px-8 py-8 w-full max-w-md backdrop-blur-md bg-opacity-80">
         <h2 className="text-3xl font-bold text-center mb-6">Sign Up</h2>
