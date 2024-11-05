@@ -59,7 +59,6 @@ const LogWorkout = () => {
       setWorkoutData({
         ...workoutData,
         name: selectedWorkout.name,
-        duration: selectedWorkout.duration,
         difficulty: selectedWorkout.difficulty,
         exercises: exercises,
         notes: selectedWorkout.content 
