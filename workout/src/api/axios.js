@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:7000',
+  baseURL: "https://ai-workout-generator-backend.onrender.com",
 });
 
 instance.interceptors.request.use(
