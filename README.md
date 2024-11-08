@@ -2,7 +2,7 @@
 
 FitnessBro is a full-stack web application that leverages AI to generate personalized workout routines and helps users track their fitness progress. Built with React, Node.js, Express, and MongoDB, it offers a seamless experience for fitness enthusiasts of all levels.
 
-## Deployment Link: https://ai-workout-generator-psi.vercel.app/
+## Website Link: https://ai-workout-generator-psi.vercel.app/
 
 ## Features
 
